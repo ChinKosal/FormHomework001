@@ -66,10 +66,10 @@ fun FormRegister(){
            }
            Row  {
               Box(modifier = Modifier
-                  .weight(1f)
+                  .weight(2f)
                   .padding(0.dp, 0.dp, 6.dp, 0.dp)){
                   TextFieldComponent(
-                      placeholder = "Male",
+                      placeholder = "your gender",
                       label = "Gender",
                       onTextChange = { newValue ->
                           viewModel.updateUserData("gender", newValue)
@@ -79,9 +79,9 @@ fun FormRegister(){
                   )
 
               }
-             Box(modifier = Modifier.weight(2f)){
+             Box(modifier = Modifier.weight(3f)){
                  TextFieldComponent(
-                     "0887683082",
+                     "Enter your phone number",
                      "Phone",
                      onTextChange = {
                          newValue -> viewModel.updateUserData("phone" , newValue)
