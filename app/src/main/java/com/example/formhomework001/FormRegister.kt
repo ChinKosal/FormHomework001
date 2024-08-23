@@ -40,7 +40,8 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 @Composable
 fun FormRegister(){
     var viewModel : RegisterViewModel = viewModel();
-    var event by remember { mutableStateOf("") }
+    var userState by  viewModel.userData
+    var buttonCheck = userState.name.isNotEmpty() && userState.gender.isNotEmpty() && userState.phone.isNotEmpty() && userState.address.isNotEmpty()
        Column (modifier = Modifier
            .fillMaxSize()
            .background(Color.Transparent)
@@ -88,7 +89,6 @@ fun FormRegister(){
                      "phone",
                      vm = viewModel,
                  )
-                 Log.d("Event", "FormRegister: $event")
              }
            }
            Row(modifier =  Modifier.padding(0.dp,0.dp,0.dp,15.dp)) {
@@ -109,13 +109,14 @@ fun FormRegister(){
                            top.linkTo(submitButton.top)
                            width = Dimension.matchParent
                        },
-                       enabled = event.isNotEmpty()
+                       enabled = buttonCheck
                    ) {
                        Text(text = "Submit")
                    }
                }
        }
 }
+
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

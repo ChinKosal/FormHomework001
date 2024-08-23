@@ -31,40 +31,4 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-@Composable
-fun learnLayout(){
-    ConstraintLayout {
-        val (redButton, greenButton, blueButton, blackButton) = createRefs()
 
-        Button(onClick = { /*TODO*/ } , colors = ButtonDefaults.buttonColors(Color.Red) ,
-            modifier = Modifier.constrainAs(redButton){
-                top.linkTo(parent.top)
-                width = Dimension.matchParent
-                height = Dimension.value(60.dp)
-            }) {
-            Text(text = "Red Button")
-        }
-
-        Button(onClick = { /*TODO*/ } , colors = ButtonDefaults.buttonColors(Color.Green),
-            modifier = Modifier.constrainAs(greenButton){
-                top.linkTo(redButton.bottom)
-            }) {
-            Text(text = "Red Green")
-        }
-
-        Button(onClick = { /*TODO*/ } , colors = ButtonDefaults.buttonColors(Color.Blue),
-            modifier = Modifier.constrainAs(blueButton){
-                top.linkTo(redButton.bottom)
-            }) {
-            Text(text = "Red Blue")
-        }
-        createHorizontalChain(greenButton , blueButton, chainStyle = ChainStyle.Packed)
-
-        Button(onClick = { /*TODO*/ } , colors = ButtonDefaults.buttonColors(Color.Black),
-            modifier = Modifier.constrainAs(blackButton){
-                top.linkTo(blueButton.bottom)
-            }) {
-            Text(text = "Red Black")
-        }
-    }
-}
